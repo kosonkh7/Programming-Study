@@ -1,4 +1,4 @@
-
+# from itertools import combinations <- 이거에 익숙해지자
 
 lst = []
 
