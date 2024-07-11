@@ -48,17 +48,18 @@ answer = count_candy(n_list)
 # 가로로 swap
 for i in range(n):
     for j in range(n-1):
-        swap_list = n_list
+        swap_list = n_list # 이 부분 copy.deepcopy로 했으면 아래 문장 추가 없이 됐을 수도
         swap_list[i][j], swap_list[i][j+1] = swap_list[i][j+1], swap_list[i][j]
         answer = max(answer, count_candy(swap_list))
-        swap_list[i][j], swap_list[i][j+1] = swap_list[i][j+1], swap_list[i][j]
+        swap_list[i][j], swap_list[i][j+1] = swap_list[i][j+1], swap_list[i][j] # 추가한 문장
 
 # 세로로 swap
 for i in range(n):
     for j in range(n-1):
-        swap_list = n_list
+        swap_list = n_list # 이 부분 copy.deepcopy로 했으면 아래 문장 추가 없이 됐을 수도
         swap_list[j][i], swap_list[j+1][i] = swap_list[j+1][i], swap_list[j][i]
         answer = max(answer, count_candy(swap_list))
-        swap_list[j][i], swap_list[j+1][i] = swap_list[j+1][i], swap_list[j][i]
+        swap_list[j][i], swap_list[j+1][i] = swap_list[j+1][i], swap_list[j][i] # 추가한 문장
 
 print(answer)
+
