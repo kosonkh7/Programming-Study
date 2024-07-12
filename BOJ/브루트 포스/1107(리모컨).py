@@ -50,4 +50,3 @@ answer = find_near(n, m_list_r)
 if answer < abs(n-100):
     print(answer)
 else: print(abs(n-100))
-
