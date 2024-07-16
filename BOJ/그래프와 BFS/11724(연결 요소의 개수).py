@@ -35,5 +35,6 @@ for i in range(1, n+1):
     if not visited[i]:
         count+=1
         bfs(i)
+    else: continue
 
 print(count)
