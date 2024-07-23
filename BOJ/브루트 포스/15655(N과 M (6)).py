@@ -2,12 +2,9 @@ n, m = map(int, input().split())
 
 n_list = list(map(int, input().split()))
 
-# for i in range(n):
-#     n_list.append(int(input()))
+from itertools import combinations
 
-from itertools import permutations
-
-answer = list(permutations(sorted(n_list), m))
+answer = list(combinations(sorted(n_list), m))
 
 for i in range(len(answer)):
     for j in range(m):
