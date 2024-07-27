@@ -1,3 +1,7 @@
+"""
+단어를 정렬한 뒤 전체 조합을 구하고, 그 조합 중에 조건에 부합한 것만 출력한다. 
+"""
+
 l, c = map(int, input().split())
 x_list = input().split()
 c_list = []
