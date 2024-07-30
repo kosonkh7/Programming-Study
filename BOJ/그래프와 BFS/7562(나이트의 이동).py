@@ -10,4 +10,20 @@
 둘째 줄과 셋째 줄에는 나이트가 현재 있는 칸, 나이트가 이동하려고 하는 칸이 주어진다.
 """
 
-t = int(input())
+# t = int(input())
+
+import math
+
+# 그냥 넣어두었을 때
+print(int(1000000 + 1000000*0.02*360/365)) 
+
+x = 1000000
+
+def compound(x):
+    x =  x+math.floor(x*0.02/365*30)
+    return x
+
+for i in range(12):
+    x = compound(x)
+
+print(x)
