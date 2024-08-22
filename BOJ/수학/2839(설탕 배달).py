@@ -15,5 +15,7 @@ else:
             break
         i += 1
 
+if answer == 0:
+    answer = -1
 
 print(answer)
