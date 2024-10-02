@@ -1,22 +1,31 @@
-n, m = map(int, input().split())
-n_list = list(map(int, input().split()))
+n = int(input())
 
-candy = [i+1 for i in range(n)]
-answer = 0
+graph = []
 
-for i in n_list:
-    target = candy.index(i)
-    if target == 0:
-        candy = candy[1:]
-    elif target <= len(candy)//2:
-        candy = candy[target+1:] + candy[:target]
-        answer += target
-    elif target == len(candy)-1:
-        answer += 1
-        candy = candy[:target]
-    else:
-        candy = candy[target+1:] + candy[:target]
-        answer += (len(candy)-target+1)
-    #print(candy, answer)
-        
+for i in range(n):
+    x, y = map(int, input().split())
+    graph.append((x,y))
+
+arrive, health = map(int, input().split())
+
+graph.append((arrive, 0))
+
+answer = 10000000000
+
+visited = 0
+
+def dfs(graph, v, visited, health):
+    if v == n:
+        answer = min(answer, visited)
+        return
+    for i in range(v+1, n+1):
+        after, food = graph[i]
+        if after-graph[v][0] > health:
+            continue
+        else:
+            dfs(graph, v, visited+1, health - (after-graph[v][0]) + food)
+    
+
+dfs(graph, 0, visited, health)
+
 print(answer)
