@@ -2,7 +2,6 @@
 
 """
 
-from collections import deque
 
 n = int(input())
 tmp = list(map(int, input().split()))
@@ -10,7 +9,7 @@ n_list = []
 for i in range(n-1, -1, -1):
     n_list.append(tmp[i])
 
-# 가장 긴 증가하는 부분 수열 문제로 변환
+# 가장 긴 증가하는 부분 수열 문제로 변환 <= 꼭 그러지 않고 반대로만 하면 되는데, 생각하기 편한대로 풀었다.
 dp = [0] * n
 dp[0] = 1
 
