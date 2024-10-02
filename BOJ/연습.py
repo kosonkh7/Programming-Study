@@ -16,7 +16,7 @@ for i in n_list:
         candy = candy[:target]
     else:
         candy = candy[target+1:] + candy[:target]
-        answer += (len(candy)-target)
-    print(candy, answer)
+        answer += (len(candy)-target+1)
+    #print(candy, answer)
         
 print(answer)
