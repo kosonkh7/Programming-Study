@@ -1,31 +1,39 @@
-n = int(input())
+n, m = map(int, input().split())
 
-graph = []
+n_list = []
 
 for i in range(n):
-    x, y = map(int, input().split())
-    graph.append((x,y))
-
-arrive, health = map(int, input().split())
-
-graph.append((arrive, 0))
-
-answer = 10000000000
-
-visited = 0
-
-def dfs(graph, v, visited, health):
-    if v == n:
-        answer = min(answer, visited)
-        return
-    for i in range(v+1, n+1):
-        after, food = graph[i]
-        if after-graph[v][0] > health:
-            continue
-        else:
-            dfs(graph, v, visited+1, health - (after-graph[v][0]) + food)
+    tmp = list(map(int, input().split()))
+    n_list.append(tmp)
     
+answer = 0
+    
+for i in range(n-1):
+    for j in range(m-1):
+        for k in range(i+1, n):
+            for l in range(j+1, m):
+                lst = n_list[i:k][j:l]
+                total = 0
+                for sublist in lst:
+                    for num in sublist:
+                        total += num
+                if total == 10:
+                    answer += 1
+                    
 
-dfs(graph, 0, visited, health)
+lst = n_list[0:1][0:1]          
+                    
+print(n_list)
+print(n_list[0])
+print(n_list[1])
+print(n_list[0:1])
+print(n_list[1:2][0:1])
 
-print(answer)
+
+total = 0
+
+for sublist in lst:
+    for num in sublist:
+        total += num
+
+print(total)
