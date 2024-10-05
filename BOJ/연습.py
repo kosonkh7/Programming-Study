@@ -1,39 +1,40 @@
-n, m = map(int, input().split())
+n = int(input())
 
-n_list = []
+x, y = map(int, input().split()) # 시작
+a, b = map(int, input().split()) # 도착지
 
-for i in range(n):
-    tmp = list(map(int, input().split()))
-    n_list.append(tmp)
-    
+x+=100
+y+=100
+a+=100
+b+=100
+
+dx = [1,-1,0,0] # 방향벡터
+dy = [0,0,1,-1]
+
+visited = [[False]*1000 for _ in range(1000)] # 방문 했는지
+visited[x][y] = True
+
 answer = 0
+
+def dfs(q, r, s):
+    global answer
     
-for i in range(n-1):
-    for j in range(m-1):
-        for k in range(i+1, n):
-            for l in range(j+1, m):
-                lst = n_list[i:k][j:l]
-                total = 0
-                for sublist in lst:
-                    for num in sublist:
-                        total += num
-                if total == 10:
-                    answer += 1
-                    
+    if s == n:
+        if q == a and r == b:
+            answer += 1
+            return
+        else:
+            return
 
-lst = n_list[0:1][0:1]          
-                    
-print(n_list)
-print(n_list[0])
-print(n_list[1])
-print(n_list[0:1])
-print(n_list[1:2][0:1])
+    else:
+        for i in range(4):
+            nx, ny = q+dx[i], r+dy[i]
+            if visited[nx][ny] == False:
+                visited[nx][ny] = True
+                dfs(nx, ny, s+1)
+                visited[nx][ny] = False
+        
 
+dfs(x, y, 0)
 
-total = 0
-
-for sublist in lst:
-    for num in sublist:
-        total += num
-
-print(total)
+print(answer)
