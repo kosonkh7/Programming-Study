@@ -1,40 +1,35 @@
-n = int(input())
+# 시간복잡도 문제인지.. 안되는 이유를 모르겠다.
 
-x, y = map(int, input().split()) # 시작
-a, b = map(int, input().split()) # 도착지
+from itertools import combinations
 
-x+=100
-y+=100
-a+=100
-b+=100
+def is_square(combination):
+    is_true = True
+    criterion = combination[1][1] - combination[0][1]
+    if (combination[2][0] - combination[0][0]) != criterion:
+        return False, criterion
+    if (combination[3][1] - combination[2][1]) != criterion:
+        return False, criterion    
+    if (combination[3][0] - combination[1][0]) != criterion:
+        return False, criterion      
+    
+    return is_true, criterion
 
-dx = [1,-1,0,0] # 방향벡터
-dy = [0,0,1,-1]
-
-visited = [[False]*1000 for _ in range(1000)] # 방문 했는지
-visited[x][y] = True
-
+n, m= map(int, input().split())
+n_list = [list(map(int, input().split())) for _ in range(n)]
 answer = 0
 
-def dfs(q, r, s):
-    global answer
-    
-    if s == n:
-        if q == a and r == b:
-            answer += 1
-            return
-        else:
-            return
+points = [[] for _ in range(101)]
 
-    else:
-        for i in range(4):
-            nx, ny = q+dx[i], r+dy[i]
-            if visited[nx][ny] == False:
-                visited[nx][ny] = True
-                dfs(nx, ny, s+1)
-                visited[nx][ny] = False
-        
+for i in range(n):
+    for j in range(m):
+        points[n_list[i][j]].append([i, j])
 
-dfs(x, y, 0)
+for i in range(1, 101):
+    if len(points[i]) >= 4:
+        points[i].sort()
+        for combination in combinations(points[i], 4):
+            is_true, criterion = is_square(combination)
+            if is_true==True:
+                answer = max(answer, (criterion+1)**2)
 
 print(answer)
