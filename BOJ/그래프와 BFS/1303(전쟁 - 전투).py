@@ -1,6 +1,6 @@
 from collections import deque
 
-n, m = map(int, input().split())
+m, n = map(int, input().split())
 n_list = []
 for _ in range(n):
     n_list.append(list(input()))
