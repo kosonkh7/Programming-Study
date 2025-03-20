@@ -12,7 +12,6 @@ for i in range(h):
 # 왼쪽 벽이 있으면 세기 시작. 오른 쪽 벽을 만나면 그 사이 개수 세어서 answer에 반영
 answer = 0
 left_wall = False
-right_wall = False
 
 for i in range(h):
     left_wall = False
