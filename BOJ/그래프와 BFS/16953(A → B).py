@@ -3,7 +3,7 @@ from collections import deque
 a, b = map(int, input().split())
 answer = -1
 
-queue = deque([(a, 0)])
+queue = deque([(a, 1)])
 
 while queue:
     x, num = queue.popleft()
