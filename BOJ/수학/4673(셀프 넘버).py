@@ -1,4 +1,3 @@
-
 visited = [False] * 11000
 
 n =  1
