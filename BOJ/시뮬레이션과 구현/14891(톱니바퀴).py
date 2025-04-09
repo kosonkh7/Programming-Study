@@ -1,3 +1,9 @@
+"""
+나는 모든 경우의 수를 조건문으로 작성하였는데,
+deque를 써서 인접한 톱니바퀴와 회전여부를 넣음으로써 더 직관적으로 코드 작성 가능하겠더라
+"""
+
+
 n_list = [[int(i) for i in input()] for _ in range(4)]
 
 n = int(input())
@@ -104,10 +110,3 @@ for _ in range(n):
     trial(x, d)
 
 print(n_list[0][0] + n_list[1][0] * 2 + n_list[2][0] * 4 + n_list[3][0] * 8)
-
-
-
-
-
-
-
