@@ -30,8 +30,6 @@ def dfs(num, n_list):
 
     for
 
-
-
 """
 종류
 1 1 1 2 3 5
