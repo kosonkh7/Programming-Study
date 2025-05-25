@@ -3,7 +3,6 @@
 
 """
 
-
 from copy import deepcopy
 
 n, m = map(int, input().split())
@@ -26,15 +25,3 @@ for i in range(n):
 print(cctv)
 
 def dfs(num, n_list):
-    space = deepcopy(n_list)
-
-    for
-
-"""
-종류
-1 1 1 2 3 5
-
-횟수
-4 4 4 2 2 1 -> 힌트) 전부 네 번씩 돌려버려!
-
-"""
