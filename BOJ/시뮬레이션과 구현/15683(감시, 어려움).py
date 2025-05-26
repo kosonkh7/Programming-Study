@@ -2,11 +2,7 @@
 문제는 이해했는데, 워낙 복잡해서 미뤄둠. 꼭 다시 풀기. 못 풀 정도 아님
 
 """
-
-from copy import deepcopy
-
 n, m = map(int, input().split())
-
 n_list = [list(map(int, input().split())) for _ in range(n)]
 
 dx = [1, -1, 0, 0]
@@ -24,4 +20,4 @@ for i in range(n):
 
 print(cctv)
 
-def dfs(num, n_list):
+# def dfs(num, n_list):s
