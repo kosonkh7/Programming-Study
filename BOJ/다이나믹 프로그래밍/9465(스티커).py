@@ -27,5 +27,5 @@ for x in range(t):
 
     print(max(dp[0][n-1], dp[1][n-1], dp[2][n-1]))
 
-print(n_list)
-print(dp)
+# print(n_list)
+# print(dp)
