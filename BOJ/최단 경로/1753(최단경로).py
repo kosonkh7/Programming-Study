@@ -28,7 +28,6 @@ u와 v는 서로 다르며 w는 10 이하의 자연수이다.
 INF
 """
 
-from collections import deque
 import heapq
 
 v, e = map(int, input().split()) # 정점, 간선 개수
@@ -67,5 +66,3 @@ for i in range(1,v+1):
     if dp[i] == INF:
         print("INF")
     else: print(dp[i])
-
-
