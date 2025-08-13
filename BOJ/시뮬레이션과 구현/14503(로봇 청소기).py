@@ -4,21 +4,20 @@
 n, m = map(int, input().split())
 r, c, d = map(int, input().split())
 n_list = []
-visited = []
+visited = [] 
 
 for i in range(n):
     tmp = list(map(int, input().split()))
     n_list.append(tmp)
     tmp_tf = []
-    for t in tmp:
+    for t in tmp: # 벽이 있으면 방문 테이블도 방문 처리
         if t == 1:
             tmp_tf.append(True)
         else: tmp_tf.append(False)
-    visited.append(tmp_tf)
+    visited.append(tmp_tf) 
 
 dx = [-1, 0, 1, 0]
 dy = [0, 1, 0, -1] 
-
 
 answer = 0
 
@@ -39,7 +38,7 @@ def vacumm(x, y, d):
         else:
             return x + dx[d_tmp], y+dy[d_tmp], d
     
-    # 3번
+    # 3번. 반회전하면서 빈칸 있으면 한 칸 전진
     else:
         for i in range(1, 5):
             d_tmp = d - i
@@ -51,6 +50,5 @@ def vacumm(x, y, d):
 
 while r != -1 and c != -1:
     r, c, d = vacumm(r, c, d)
-
 
 print(answer)
