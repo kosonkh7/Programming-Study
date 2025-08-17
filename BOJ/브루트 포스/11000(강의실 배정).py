@@ -17,6 +17,6 @@ for i in range(1, n):
     if heap[0] <= n_list[i][0]:
         heapq.heappushpop(heap, n_list[i][1])
     else:
-        heapq.heappush(heap, n_list[i][1])
+        heapq.heappush(heap, n_list[i][1])s
 
 print(len(heap))
